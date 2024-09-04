@@ -1,4 +1,4 @@
-import localFont from "next/font/local";
+import localFont from "next/font/local"
 
 const gilroy = localFont({
   src: [
@@ -19,8 +19,8 @@ const gilroy = localFont({
     },
   ],
   variable: "--font-gilroy",
-});
+})
 
 export const fonts = {
   gilroy,
-};
+}

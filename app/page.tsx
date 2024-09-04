@@ -1,5 +1,5 @@
-import styles from "./page.module.css";
+import { HomeBanner } from "@/components/home/Banner"
 
 export default function Home() {
-  return <main className={styles.main}>Home Page</main>;
+  return <main>This is Ali BM</main>
 }
