@@ -4,6 +4,13 @@ import { Container } from "./styles/container.styles"
 import { Input } from "./styles/input.styles"
 
 export const theme = extendTheme({
+	breakpoints: {
+		base: '0em',
+		sm: '375px',
+		md: '1024px',
+		lg: '1440px',
+		xl: '1920px',
+	},
 	fonts: {
 		heading: "var(--font-gilroy)",
 		body: "var(--font-gilroy)",
