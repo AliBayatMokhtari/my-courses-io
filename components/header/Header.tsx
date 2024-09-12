@@ -7,7 +7,6 @@ import { IoIosNotifications } from "react-icons/io"
 import { MdOutlineTimelapse } from "react-icons/md"
 import {
 	Flex,
-	Spacer,
 	Container,
 	Heading,
 	Input,
