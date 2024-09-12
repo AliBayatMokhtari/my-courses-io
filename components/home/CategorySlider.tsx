@@ -37,7 +37,7 @@ export default function CategorySlider({ items }: CategorySliderProps) {
 	const [mounted, setMounted] = useState(false)
 
 	useEffect(() => {
-		// setMounted(true)
+		setMounted(true)
 	}, [])
 
 	if (!mounted)
@@ -46,6 +46,7 @@ export default function CategorySlider({ items }: CategorySliderProps) {
 				overflow={"hidden"}
 				width={"100%"}
 				sx={{ textWrap: "nowrap" }}
+				my={5}
 			>
 				{Array.from({ length: 10 }).map((_, idx) => (
 					<Skeleton
@@ -54,7 +55,7 @@ export default function CategorySlider({ items }: CategorySliderProps) {
 						width={WIDTH}
 						borderRadius={12}
 						display={"inline-block"}
-						mx={2}
+						ms={idx === 0 ? 0 : 2}
 						startColor="gray.100"
 						endColor="gray.300"
 					/>
