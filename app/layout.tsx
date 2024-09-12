@@ -1,9 +1,11 @@
+import "swiper/css"
+
 import type { Metadata } from "next"
 import { Providers } from "@/providers/Providers"
 import { fonts } from "./fonts/fonts"
 import "./globals.css"
 import { Header } from "@/components/header/Header"
-import { Container } from "@chakra-ui/react"
+import { Box, Container } from "@chakra-ui/react"
 
 export const metadata: Metadata = {
 	title: "Create Next App",
@@ -20,7 +22,9 @@ export default function RootLayout({
 			<body className={fonts.gilroy.className}>
 				<Providers>
 					<Header />
-					<Container>{children}</Container>
+					<Container>
+						<Box px={4}>{children}</Box>
+					</Container>
 				</Providers>
 			</body>
 		</html>

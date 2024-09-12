@@ -1,35 +1,87 @@
 "use client"
 
 import { Swiper, SwiperSlide } from "swiper/react"
+import { useEffect, useState } from "react"
+import { Box, Center, Skeleton } from "@chakra-ui/react"
 
-import "swiper/css"
-import { CSSProperties } from "react"
+const HEIGHT = 37
+const WIDTH = 168
 
-const styles: CSSProperties = {
-	padding: "1rem",
+function CategoryItem({
+	title,
+	isActive,
+}: {
+	title: string
+	isActive: boolean
+}) {
+	return (
+		<Center
+			height={HEIGHT}
+			borderRadius={12}
+			border={"1px solid"}
+			borderColor={isActive ? "brand.500" : "rgba(27, 27, 27, 0.1)"}
+			color={isActive ? "brand.500" : "rgba(27, 27, 27, 0.6)"}
+			fontSize={14}
+			cursor={"pointer"}
+		>
+			{title}
+		</Center>
+	)
 }
 
-export default function CategorySlider() {
+interface CategorySliderProps {
+	items: Array<{ title: string; href: string }>
+}
+
+export default function CategorySlider({ items }: CategorySliderProps) {
+	const [mounted, setMounted] = useState(false)
+
+	useEffect(() => {
+		// setMounted(true)
+	}, [])
+
+	if (!mounted)
+		return (
+			<Box
+				overflow={"hidden"}
+				width={"100%"}
+				sx={{ textWrap: "nowrap" }}
+			>
+				{Array.from({ length: 10 }).map((_, idx) => (
+					<Skeleton
+						key={idx}
+						height={HEIGHT}
+						width={WIDTH}
+						borderRadius={12}
+						display={"inline-block"}
+						mx={2}
+						startColor="gray.100"
+						endColor="gray.300"
+					/>
+				))}
+			</Box>
+		)
+
 	return (
-		<Swiper
-			spaceBetween={50}
-			slidesPerView={3.4}
-			slidesPerGroup={2}
-			onSlideChange={() => console.log("slide change")}
-			onSwiper={(swiper) => console.log(swiper)}
+		<Box
+			my={5}
+			hideBelow={"md"}
 		>
-			<SwiperSlide style={{ backgroundColor: "blue", ...styles }}>
-				Slide 1
-			</SwiperSlide>
-			<SwiperSlide style={{ backgroundColor: "red", ...styles }}>
-				Slide 2
-			</SwiperSlide>
-			<SwiperSlide style={{ backgroundColor: "yellow", ...styles }}>
-				Slide 3
-			</SwiperSlide>
-			<SwiperSlide style={{ backgroundColor: "brown", ...styles }}>
-				Slide 4
-			</SwiperSlide>
-		</Swiper>
+			<Swiper
+				spaceBetween={8}
+				slidesPerView={4.5}
+				slidesPerGroup={2}
+				freeMode
+			>
+				{items.map((item, idx) => (
+					<SwiperSlide key={idx}>
+						<CategoryItem
+							title={item.title}
+							isActive={idx === 0}
+						/>
+					</SwiperSlide>
+				))}
+			</Swiper>
+		</Box>
 	)
 }
