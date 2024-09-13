@@ -1,3 +1,4 @@
+import { BasedOnYourInterest } from "@/components/home/BasedOnYourInterest"
 import CategorySlider from "@/components/home/CategorySlider"
 
 const CATEGORY_ITEMS = [
@@ -24,6 +25,7 @@ export default function Home() {
 	return (
 		<main>
 			<CategorySlider items={CATEGORY_ITEMS} />
+			<BasedOnYourInterest />
 		</main>
 	)
 }

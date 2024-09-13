@@ -25,12 +25,13 @@ export const theme = extendTheme({
 		white: {
 			90: "#F9F9F9",
 		},
-		black: {
-			30: '#1B1B1B'
-		},
+		black: '#1B1B1B',
 		brand: {
 			"500": "#3DCBB1",
 		},
+		yellow: {
+			500: "#FFD130"
+		}
 	},
 	components: {
 		Container,
