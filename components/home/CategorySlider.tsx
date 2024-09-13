@@ -44,6 +44,7 @@ export default function CategorySlider({ items }: CategorySliderProps) {
 		return (
 			<Box
 				overflow={"hidden"}
+				hideBelow="md"
 				width={"100%"}
 				sx={{ textWrap: "nowrap" }}
 				my={5}
