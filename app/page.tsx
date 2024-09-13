@@ -1,5 +1,6 @@
 import { BasedOnYourInterest } from "@/components/home/BasedOnYourInterest"
 import CategorySlider from "@/components/home/CategorySlider"
+import { TrendingCourses } from "@/components/home/TrendingCourses"
 
 const CATEGORY_ITEMS = [
 	{ title: "All Recommendations", href: "#" },
@@ -26,6 +27,7 @@ export default function Home() {
 		<main>
 			<CategorySlider items={CATEGORY_ITEMS} />
 			<BasedOnYourInterest />
+			<TrendingCourses />
 		</main>
 	)
 }

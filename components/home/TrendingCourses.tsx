@@ -1,19 +1,60 @@
 "use client"
 
 import {
-	Box,
 	Grid,
 	GridItem,
-	Heading,
 	Skeleton,
-	Text,
 	useBreakpointValue,
 } from "@chakra-ui/react"
 import { CourseGridItem } from "./CourseGridItem"
-import { useEffect, useState } from "react"
 import { HomePageSection } from "./HomePageSection"
+import { useEffect, useState } from "react"
 
-const interestCourses = [
+const trendingCourses = [
+	{
+		imgUrl: "/home-banner.png",
+		title: "Adobe Illustrator Scretch Course",
+		instructor: "Kitani Studio",
+		description:
+			"Lorem ipsum dolor sit amet consectetur adipisicing elit. At iusto numquam tempore vero nisi nobis quam quae quo perferendis autem! Nulla aperiam iusto asperiores deserunt magnam aspernatur rem sint voluptates.",
+		rating: 4,
+		total: 1200,
+		price: 24.92,
+		originalPrice: 32.9,
+	},
+	{
+		imgUrl: "/home-banner.png",
+		title: "Adobe Illustrator Scretch Course",
+		instructor: "Kitani Studio",
+		description:
+			"Lorem ipsum dolor sit amet consectetur adipisicing elit. At iusto numquam tempore vero nisi nobis quam.",
+		rating: 4,
+		total: 1200,
+		price: 24.92,
+		originalPrice: 32.9,
+	},
+	{
+		imgUrl: "/home-banner.png",
+		title: "Adobe Illustrator Scretch Course",
+		instructor: "Kitani Studio",
+		description:
+			"Lorem ipsum dolor sit amet consectetur adipisicing elit. At iusto numquam tempore vero nisi nobis quam quae quo perferendis autem! Nulla aperiam iusto asperiores deserunt magnam aspernatur rem sint voluptates.",
+		rating: 4,
+		total: 1200,
+		price: 24.92,
+		originalPrice: 32.9,
+	},
+	{
+		imgUrl: "/home-banner.png",
+		title: "Adobe Illustrator Scretch Course",
+		instructor: "Kitani Studio",
+		description:
+			"Lorem ipsum dolor sit amet consectetur adipisicing elit. At iusto numquam tempore vero nisi nobis quam quae quo perferendis autem! Nulla aperiam iusto asperiores deserunt magnam aspernatur rem sint voluptates.",
+		rating: 4,
+		total: 1200,
+		price: 24.92,
+		originalPrice: 32.9,
+	},
 	{
 		imgUrl: "/home-banner.png",
 		title: "Adobe Illustrator Scretch Course",
@@ -60,7 +101,7 @@ const interestCourses = [
 	},
 ]
 
-export function BasedOnYourInterest() {
+export function TrendingCourses() {
 	const cols = useBreakpointValue({ base: 3, lg: 4 })
 	const [loading, setLoading] = useState(true)
 
@@ -93,7 +134,7 @@ export function BasedOnYourInterest() {
 			gap={5}
 			mt={4}
 		>
-			{interestCourses.map((course, idx) => (
+			{trendingCourses.map((course, idx) => (
 				<GridItem
 					w="100%"
 					key={idx}
@@ -106,8 +147,8 @@ export function BasedOnYourInterest() {
 
 	return (
 		<HomePageSection
-			title="Based on your interest"
-			subtitle="We know the best things for you. Top picks for you."
+			title="Trending Course"
+			subtitle="We know the best things for You.  Top picks for You."
 		>
 			{content}
 		</HomePageSection>
