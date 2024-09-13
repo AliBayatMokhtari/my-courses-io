@@ -64,9 +64,7 @@ export function BasedOnYourInterest() {
 	const [loading, setLoading] = useState(true)
 
 	useEffect(() => {
-		setTimeout(() => {
-			setLoading(false)
-		}, 200)
+		setLoading(false)
 	}, [])
 
 	const content = loading ? (
