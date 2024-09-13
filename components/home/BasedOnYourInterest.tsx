@@ -1,5 +1,16 @@
-import { Box, Grid, GridItem, Heading, Text } from "@chakra-ui/react"
+"use client"
+
+import {
+	Box,
+	Grid,
+	GridItem,
+	Heading,
+	Skeleton,
+	Text,
+	useBreakpointValue,
+} from "@chakra-ui/react"
 import { CourseGridItem } from "./CourseGridItem"
+import { useEffect, useState } from "react"
 
 const interestCourses = [
 	{
@@ -49,6 +60,51 @@ const interestCourses = [
 ]
 
 export function BasedOnYourInterest() {
+	const cols = useBreakpointValue({ base: 3, lg: 4 })
+	const [loading, setLoading] = useState(true)
+
+	useEffect(() => {
+		setTimeout(() => {
+			setLoading(false)
+		}, 200)
+	}, [])
+
+	const content = loading ? (
+		<Grid
+			templateColumns="repeat(3, 1fr)"
+			gap={5}
+			mt={4}
+		>
+			{Array.from({ length: 3 }).map((_, idx) => (
+				<GridItem
+					w="100%"
+					key={idx}
+				>
+					<Skeleton
+						width="100%"
+						height={181}
+						borderRadius={23}
+					/>
+				</GridItem>
+			))}
+		</Grid>
+	) : (
+		<Grid
+			templateColumns={`repeat(${cols}, 1fr)`}
+			gap={5}
+			mt={4}
+		>
+			{interestCourses.slice(0, cols).map((course, idx) => (
+				<GridItem
+					w="100%"
+					key={idx}
+				>
+					<CourseGridItem {...course} />
+				</GridItem>
+			))}
+		</Grid>
+	)
+
 	return (
 		<Box>
 			<Heading
@@ -64,20 +120,7 @@ export function BasedOnYourInterest() {
 			>
 				We know the best things for you. Top picks for you.
 			</Text>
-			<Grid
-				templateColumns="repeat(4, 1fr)"
-				gap={5}
-				mt={4}
-			>
-				{interestCourses.map((course, idx) => (
-					<GridItem
-						w="100%"
-						key={idx}
-					>
-						<CourseGridItem {...course} />
-					</GridItem>
-				))}
-			</Grid>
+			{content}
 		</Box>
 	)
 }
