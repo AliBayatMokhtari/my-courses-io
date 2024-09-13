@@ -56,8 +56,6 @@ export default function CategorySlider({ items }: CategorySliderProps) {
 						borderRadius={12}
 						display={"inline-block"}
 						ms={idx === 0 ? 0 : 2}
-						startColor="gray.100"
-						endColor="gray.300"
 					/>
 				))}
 			</Box>

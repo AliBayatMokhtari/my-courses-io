@@ -2,6 +2,7 @@ import { extendTheme, type ThemeConfig } from "@chakra-ui/react"
 import { Button } from "./styles/button.styles"
 import { Container } from "./styles/container.styles"
 import { Input } from "./styles/input.styles"
+import { Skeleton } from "./styles/skeleton.styles"
 
 const config: ThemeConfig = {
 	initialColorMode: 'light',
@@ -35,7 +36,8 @@ export const theme = extendTheme({
 	},
 	components: {
 		Container,
-		Button: Button,
-		Input: Input,
+		Button,
+		Input,
+		Skeleton
 	},
 })
