@@ -41,6 +41,7 @@ export function CourseGridItem({
 					height={181}
 					alt="something"
 					borderRadius={23}
+					sx={{ width: "100%" }}
 				/>
 			</Box>
 			<Box mt={1}>
