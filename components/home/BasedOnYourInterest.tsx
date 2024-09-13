@@ -1,14 +1,6 @@
 "use client"
 
-import {
-	Box,
-	Grid,
-	GridItem,
-	Heading,
-	Skeleton,
-	Text,
-	useBreakpointValue,
-} from "@chakra-ui/react"
+import { Grid, GridItem, Skeleton } from "@chakra-ui/react"
 import { CourseGridItem } from "./CourseGridItem"
 import { useEffect, useState } from "react"
 import { HomePageSection } from "./HomePageSection"
@@ -61,7 +53,6 @@ const interestCourses = [
 ]
 
 export function BasedOnYourInterest() {
-	const cols = useBreakpointValue({ base: 3, lg: 4 })
 	const [loading, setLoading] = useState(true)
 
 	useEffect(() => {
@@ -89,7 +80,7 @@ export function BasedOnYourInterest() {
 		</Grid>
 	) : (
 		<Grid
-			templateColumns={`repeat(${cols}, 1fr)`}
+			templateColumns="repeat(4, 1fr)"
 			gap={5}
 			mt={4}
 		>
