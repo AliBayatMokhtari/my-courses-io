@@ -1,4 +1,4 @@
-import { Box, Stack, Text } from "@chakra-ui/react"
+import { Box, Stack, Text, useBreakpointValue } from "@chakra-ui/react"
 
 interface PopularInstructorGridItemProps {
 	imgUrl: string
@@ -11,18 +11,19 @@ export function PopularInstructorGridItem({
 	title,
 	expertise,
 }: PopularInstructorGridItemProps) {
+	const width = useBreakpointValue({ base: "100%", md: 285 })
+
 	return (
 		<Box position={"relative"}>
 			<Box
-				position={"relative"}
-				display={"inline-block"}
 				borderRadius={30}
-				width={285}
+				width={width}
 				height={400}
 				sx={{
-					background: `linear-gradient(to top, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.5) 100%), url("${imgUrl}")`,
+					background: `url("${imgUrl}")`,
 					backgroundSize: "contain",
 					backgroundRepeat: "no-repeat",
+					backgroundPosition: "center",
 				}}
 			/>
 			<Stack

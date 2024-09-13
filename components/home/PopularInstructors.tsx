@@ -1,10 +1,11 @@
 "use client"
 
-import { Grid, GridItem, Skeleton } from "@chakra-ui/react"
+import { Box, Grid, GridItem, Skeleton } from "@chakra-ui/react"
 import { HomePageSection } from "./HomePageSection"
 import { CourseGridItem } from "./CourseGridItem"
 import { useEffect, useState } from "react"
 import { PopularInstructorGridItem } from "./PopularInstructorGridItem"
+import { Swiper, SwiperSlide } from "swiper/react"
 
 const popularInstructors = [
 	{
@@ -77,7 +78,29 @@ export function PopularInstructors() {
 			title="Popular Instructor"
 			subtitle="We know the best things for You.  Top picks for You."
 		>
-			{content}
+			<Box hideBelow={"md"}>{content}</Box>
+			<Box
+				hideFrom={"md"}
+				mt={4}
+			>
+				<Swiper
+					spaceBetween={8}
+					slidesPerView={1.5}
+					breakpoints={{
+						576: {
+							slidesPerView: 2.5,
+						},
+					}}
+					slidesPerGroup={2}
+					freeMode
+				>
+					{popularInstructors.map((instructor, idx) => (
+						<SwiperSlide key={idx}>
+							<PopularInstructorGridItem {...instructor} />
+						</SwiperSlide>
+					))}
+				</Swiper>
+			</Box>
 		</HomePageSection>
 	)
 }

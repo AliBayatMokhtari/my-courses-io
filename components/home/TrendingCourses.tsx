@@ -1,9 +1,10 @@
 "use client"
 
-import { Grid, GridItem, Skeleton } from "@chakra-ui/react"
+import { Box, Grid, GridItem, Skeleton } from "@chakra-ui/react"
 import { CourseGridItem } from "./CourseGridItem"
 import { HomePageSection } from "./HomePageSection"
 import { useEffect, useState } from "react"
+import { Swiper, SwiperSlide } from "swiper/react"
 
 const trendingCourses = [
 	{
@@ -144,7 +145,29 @@ export function TrendingCourses() {
 			title="Trending Course"
 			subtitle="We know the best things for You.  Top picks for You."
 		>
-			{content}
+			<Box hideBelow={"md"}>{content}</Box>
+			<Box
+				hideFrom={"md"}
+				mt={4}
+			>
+				<Swiper
+					spaceBetween={8}
+					slidesPerView={1.2}
+					breakpoints={{
+						576: {
+							slidesPerView: 2.5,
+						},
+					}}
+					slidesPerGroup={2}
+					freeMode
+				>
+					{trendingCourses.map((course, idx) => (
+						<SwiperSlide key={idx}>
+							<CourseGridItem {...course} />
+						</SwiperSlide>
+					))}
+				</Swiper>
+			</Box>
 		</HomePageSection>
 	)
 }
